@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do Website | Login</title>
+    <link rel="stylesheet" href="../styles/login-signup.css" />
+    <link rel="stylesheet" href="../styles/common/utilities.css" />
+</head>
+<body>
+    <div class="container">
+        <img src="../assets/login-bg.jpg" />
+
+        <div class="box flex column center hidden">
+            <h1>LOGIN</h1>
+            <p class="hidden" id="incorrectCredentialsNote">Incorrect username or password!</p>
+            <input type="text" class="username-btn small-text" id="username" placeholder="Username or email" />
+            <input type="password" class="password-btn small-text" id="password" placeholder="Password" />
+            <label class="remember-me small-text">
+                <input type="checkbox" id="rememberMe"/>Remember Me
+            </label>
+            <button class="submit-btn bold" id="login">Log In</button>
+            <p class="small-text">Don't have an account? <span class="signup-link">Signup</span></p>
+        </div>
+
+        <div class="box flex column center">
+            <h1>SIGNUP</h1>
+            <p class="hidden" id="incorrectCredentialsNote">Incorrect username or password!</p>
+            <input type="text" class="small-text" id="username" placeholder="Username" />
+            <input type="text" class="small-text" id="email" placeholder="Email" />
+            <input type="password" class="small-text" id="password" placeholder="Password" />
+            <input type="password" class="small-text" id="confirm-password" placeholder="Confirm password" />
+            <button class="submit-btn bold" id="signup">Sign up</button>
+            <p class="small-text">Already have an account? <span class="signup-link">Login</span></p>
+        </div>
+    </div>
+
+    <script src="../scripts/login.js"></script>
+</body>
+</html>
