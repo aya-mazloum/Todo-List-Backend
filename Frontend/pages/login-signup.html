@@ -11,31 +11,33 @@
     <div class="container">
         <img src="../assets/login-bg.jpg" />
 
-        <div class="box flex column center hidden">
+        <div class="box flex column center " id="login-box">
             <h1>LOGIN</h1>
-            <p class="hidden" id="incorrectCredentialsNote">Incorrect username or password!</p>
-            <input type="text" class="username-btn small-text" id="username" placeholder="Username or email" />
+            <p class="note hidden" id="incorrect-credentials-note">Incorrect username or password!</p>
+            <input type="text" class="username-btn small-text" id="user" placeholder="Username or email" />
             <input type="password" class="password-btn small-text" id="password" placeholder="Password" />
             <label class="remember-me small-text">
-                <input type="checkbox" id="rememberMe"/>Remember Me
+                <input type="checkbox" id="remember-me"/>Remember Me
             </label>
-            <button class="submit-btn bold" id="login">Log In</button>
-            <p class="small-text">Don't have an account? <span class="signup-link">Signup</span></p>
+            <button class="submit-btn bold" id="login-btn">Log In</button>
+            <p class="small-text">Don't have an account? <span class="box-link" id="signup-link">Signup</span></p>
         </div>
 
-        <div class="box flex column center">
+        <div class="box flex column center hidden" id="signup-box">
             <h1>SIGNUP</h1>
-            <p class="hidden" id="incorrectCredentialsNote">All fields are required</p>
+            <p class="note hidden" id="">All fields are required</p>
             <input type="text" class="small-text" id="username" placeholder="Username" />
             <input type="text" class="small-text" id="name" placeholder="name" />
             <input type="text" class="small-text" id="email" placeholder="Email" />
-            <input type="password" class="small-text" id="password" placeholder="Password" />
+            <input type="password" class="small-text" id="new-password" placeholder="Password" />
             <input type="password" class="small-text" id="confirm-password" placeholder="Confirm password" />
-            <button class="submit-btn bold" id="signup">Sign up</button>
-            <p class="small-text">Already have an account? <span class="signup-link">Login</span></p>
+            <button class="submit-btn bold" id="signup-btn">Sign up</button>
+            <p class="small-text">Already have an account? <span class="box-link" id="login-link">Login</span></p>
         </div>
     </div>
 
-    <script src="../scripts/login.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="../scripts/todos.js"></script>
+    <script src="../scripts/login-signup.js"></script>
 </body>
 </html>

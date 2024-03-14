@@ -48,7 +48,7 @@ img {
   margin-bottom: 15px;
 }
 
-.incorrect-credentials-note {
+.note {
   color: red;
   margin-bottom: 10px;
   font-size: 12px;
@@ -91,7 +91,7 @@ input[type="checkbox"] {
   background-color: #c05cbb;
 }
 
-.signup-link {
+.box-link {
   color: #a61f9f;
   cursor: pointer;
 }
