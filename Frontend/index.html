@@ -15,7 +15,7 @@
         <section class="todo-section">
             <div class="flex row space-between todo-section-top">
                 <h1>Awesome Todo List</h1>
-                <p class="score">Score: <span>4/10</span></p>
+                <p class="score">Score: <span id="score"></span></p>
             </div>
 
             <input type="text" id="todo" placeholder="What dou you want to do?" />
@@ -25,6 +25,9 @@
         </section>
     </div>
 
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./scripts/common/check-user.js"></script>
+    <script src="./scripts/todos.js"></script>
     <script src="./scripts/main.js"></script>
 </body>
 </html>

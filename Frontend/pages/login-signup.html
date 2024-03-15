@@ -25,19 +25,22 @@
 
         <div class="box flex column center hidden" id="signup-box">
             <h1>SIGNUP</h1>
-            <p class="note hidden" id="">All fields are required</p>
+            <p class="note success-note hidden" id="success-note">Signed up successfully</p>
+            <p class="note hidden" id="required-note">All fields are required</p>
+            <p class="note hidden" id="user-note">Username or amail already exists</p>
             <input type="text" class="small-text" id="username" placeholder="Username" />
             <input type="text" class="small-text" id="name" placeholder="name" />
             <input type="text" class="small-text" id="email" placeholder="Email" />
+            <p class="note hidden" id="email-note">Enter a valid email</p>
             <input type="password" class="small-text" id="new-password" placeholder="Password" />
             <input type="password" class="small-text" id="confirm-password" placeholder="Confirm password" />
+            <p class="note hidden" id="password-note">Passwords doesn't match</p>
             <button class="submit-btn bold" id="signup-btn">Sign up</button>
             <p class="small-text">Already have an account? <span class="box-link" id="login-link">Login</span></p>
         </div>
     </div>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="../scripts/todos.js"></script>
     <script src="../scripts/login-signup.js"></script>
 </body>
 </html>
