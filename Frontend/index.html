@@ -18,8 +18,11 @@
                 <p class="score">Score: <span id="score"></span></p>
             </div>
 
-            <input type="text" id="todo" placeholder="What dou you want to do?" />
-            <button id="submit">ADD</button>
+            <input type="text" id="todo-title-input" placeholder="What dou you want to do?" />
+            <button id="add-btn">Add</button>
+
+            <p class="note hidden" id="add-note">Todo added successfully</p>
+            <p class="note hidden" id="edit-note">Todo updated successfully</p>
 
             <div class="flex column todo-list" id="todos-container"></div>
         </section>

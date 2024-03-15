@@ -35,3 +35,7 @@
 .completed {
   text-decoration: line-through;
 }
+
+.editing {
+  background-color: #cfcfcf;
+}

@@ -14,6 +14,12 @@ const getTodos = async () => {
     }
 }
 
+const getTodo = (id) => {
+    const found = todosList.find((todo) => id === todo['todo_id']);
+  
+    return found;
+};
+
 const addTodo = async (title, userId) => {
     try {
         const userData = new FormData();
@@ -23,8 +29,25 @@ const addTodo = async (title, userId) => {
 
         const { data } = await axios.post("http://localhost/todolist_backend/create_todo.php", userData);
 
-        //loadTodos();
-        console.log(data);
+        loadTodosInList();
+        addNote.classList.remove('hidden');
+    } catch (error) {
+      console.log(error);
+    }
+};
+
+const editTodo = async (id, title, completed) => {
+    try {
+        const userData = new FormData();
+
+        userData.append("todo_id", id);
+        userData.append("title", title);
+        userData.append("completed", completed);
+
+        const { data } = await axios.post("http://localhost/todolist_backend/update_todo.php", userData);
+
+        loadTodosInList();
+        editNote.classList.remove('hidden');
     } catch (error) {
       console.log(error);
     }
@@ -32,4 +55,4 @@ const addTodo = async (title, userId) => {
 
 const userId = parseInt(localStorage.getItem('loggedUser'));
 
-let todosList = getTodos();
+let todosList = [];

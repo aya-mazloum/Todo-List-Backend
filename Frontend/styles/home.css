@@ -21,7 +21,6 @@ body {
   color: white;
   background-color: #63055e;
   padding: 8px 15px;
-  border-radius: 15px;
 }
 
 .logout:hover {
@@ -45,7 +44,6 @@ body {
   width: 75%;
   max-width: 800px;
   padding: 40px;
-  border-radius: 20px;
   color: #333333;
 }
 
@@ -61,7 +59,6 @@ body {
 .todo-section > input {
   height: 20px;
   width: 85%;
-  border-radius: 15px;
   margin-bottom: 15px;
   padding: 17px;
   color: #63055e;
@@ -78,7 +75,6 @@ body {
   background-color: #63055e;
   margin-top: 15px;
   padding: 10px 15px;
-  border-radius: 5px;
   margin-left: 10px;
 }
 
@@ -108,14 +104,15 @@ body {
   margin-right: 15px;
 }
 
-.todo-item > .delete-todo {
-  color: #960c0c;
-}
-
 .todo-item > i:hover {
-  color: #ffffff;
+  color: #999;
 }
 
 .completed {
   text-decoration: line-through;
+}
+
+.note {
+  font-size: 13px;
+  color: #646464;
 }
