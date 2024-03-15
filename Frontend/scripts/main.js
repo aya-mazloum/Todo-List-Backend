@@ -7,6 +7,8 @@ const editNote = document.getElementById('edit-note');
 
 
 
+let userScore = 0;
+let total = 0;
 
 const loadTodosInList = () => {
     addNote.classList.add('hidden');
@@ -18,9 +20,20 @@ const loadTodosInList = () => {
 
         todosList = loaded ?? [];
 
+        userScore = total = 0;
+
         todosList.forEach(todo => {
             todosContainer.innerHTML += generateTodoItem(todo);
+
+            if (todo['completed'] == '1') {
+                userScore++;
+            }
+
+            total++;
         });
+
+        
+        score.innerHTML = userScore + "/" + total;
 
         const todoEditBtns = document.querySelectorAll('.edit-todo');
 
@@ -128,5 +141,3 @@ addBtn.addEventListener('click', async () => {
 });
 
 loadTodosInList();
-
-score.innerHTML = localStorage.getItem('score');
