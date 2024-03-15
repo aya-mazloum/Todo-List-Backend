@@ -38,17 +38,20 @@ const login = async (user, password) => {
 };
   
 const signup = async (username, name, email, password) => {
-    const userData = new FormData();
+    try {
+        const userData = new FormData();
 
-    userData.append("username", username);
-    userData.append("name", name);
-    userData.append("email", email);
-    userData.append("password", password);
+        userData.append("username", username);
+        userData.append("name", name);
+        userData.append("email", email);
+        userData.append("password", password);
 
-    const { data } = await axios.post("http://localhost/todolist_backend/signup.php", userData);
+        const { data } = await axios.post("http://localhost/todolist_backend/signup.php", userData);
 
-    console.log(JSON.stringify(data));
-    return data;
+        return data;
+    } catch (error) {
+      console.log(error);
+    }
 };
 
 
