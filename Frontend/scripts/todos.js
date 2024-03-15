@@ -36,7 +36,7 @@ const addTodo = async (title, userId) => {
     }
 };
 
-const editTodo = async (id, title, completed) => {
+const updateTodo = async (editingTitle, id, title, completed) => {
     try {
         const userData = new FormData();
 
@@ -47,7 +47,24 @@ const editTodo = async (id, title, completed) => {
         const { data } = await axios.post("http://localhost/todolist_backend/update_todo.php", userData);
 
         loadTodosInList();
-        editNote.classList.remove('hidden');
+
+        if (editingTitle) editNote.classList.remove('hidden');
+        console.log(id);
+        
+    } catch (error) {
+      console.log(error);
+    }
+};
+
+const deleteTodo = async (id) => {
+    try {
+        const userData = new FormData();
+
+        userData.append("todo_id", id);
+
+        const { data } = await axios.post("http://localhost/todolist_backend/delete_todo.php", userData);
+
+        loadTodosInList();
     } catch (error) {
       console.log(error);
     }

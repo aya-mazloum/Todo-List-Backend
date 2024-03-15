@@ -16,7 +16,7 @@ const loadTodosInList = () => {
     todosListPromise.then((loaded) => {
         todosContainer.innerHTML = '';
 
-        todosList = loaded;
+        todosList = loaded ?? [];
 
         todosList.forEach(todo => {
             todosContainer.innerHTML += generateTodoItem(todo);
@@ -47,6 +47,44 @@ const loadTodosInList = () => {
                 editBtn.parentElement.classList.add('editing');
             });
         });
+        
+        const todoDeleteBtns = document.querySelectorAll('.delete-todo');
+
+        todoDeleteBtns.forEach((deleteBtn) => {
+            deleteBtn.addEventListener('click', () => {
+                let todoItems = document.querySelectorAll('.todo-item');
+                if (todoItems.length > 0) {
+                    todoItems.forEach((item) => {
+                        item.classList.remove('editing');
+                    });
+                }
+                
+                todoInput.value = '';
+
+                addBtn.innerHTML = "Add";
+
+                const selected = deleteBtn.parentElement.id;
+
+                localStorage.setItem('current-todo-id', selected);
+                localStorage.removeItem('current-todo-status');
+
+                deleteTodo(parseInt(selected));
+                
+                localStorage.removeItem('current-todo-id');
+            });
+        });
+
+        const completedCheckBoxes = document.querySelectorAll('.todo-done-checkbox');
+
+        completedCheckBoxes.forEach((checkBox) => {
+            checkBox.addEventListener('click', () => {
+                const id = checkBox.parentElement.parentElement.id;
+                const title = checkBox.parentElement.parentElement.getAttribute('todo-title');
+                const checked = checkBox.checked ? 1 : 0;
+                
+                updateTodo(false, id, title, checked);
+            });
+        });
     });
 };
 
@@ -55,7 +93,7 @@ const generateTodoItem = (todo) => {
 
     const isChecked = completed == 1 ? 'checked' : '';
 
-    return `<div class="flex row todo-item" id="${todo_id}" todo-completed=${completed}>
+    return `<div class="flex row todo-item" id="${todo_id}" todo-completed=${completed} todo-title="${title}">
                 <label>
                     <input type="checkbox" class="todo-done-checkbox" ${isChecked}>${title}
                 </label>
@@ -67,8 +105,6 @@ const generateTodoItem = (todo) => {
 
 
 
-
-
 addBtn.addEventListener('click', async () => {
     const todoTitle = todoInput.value;
 
@@ -76,7 +112,7 @@ addBtn.addEventListener('click', async () => {
     const completed = localStorage.getItem('current-todo-status');
 
     if (idSelected) {
-        editTodo(idSelected, todoTitle, completed);
+        updateTodo(true, idSelected, todoTitle, completed);
         
         addBtn.innerHTML = 'Add';
 
